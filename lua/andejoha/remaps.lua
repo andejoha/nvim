@@ -5,8 +5,13 @@ local cmd = vim.cmd
 
 keymap.set("n", "<leader>e", cmd.Ex)
 
-keymap.set("n", "<A-j>", "<cmd>move +1<CR>") 
-keymap.set("n", "<A-k>", "<cmd>move -2<CR>")
+-- Move lines
+keymap.set("n", "<A-j>", ":m .+1<CR>==") 
+keymap.set("n", "<A-k>", ":m .-2<CR>==")
+keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
+keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
+keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
+keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
 -- Window management
 keymap.set("n", "<leader>sv", cmd.vs)
