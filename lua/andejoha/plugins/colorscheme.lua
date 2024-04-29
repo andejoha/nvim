@@ -1,5 +1,9 @@
 return {
 	"folke/tokyonight.nvim",
+	dependencies = {
+		"nvim-lualine/lualine.nvim",
+		"nvim-tree/nvim-web-devicons",
+	},
 	lazy = false,
 	priority = 1000,
 	opts = {},
@@ -22,5 +26,14 @@ return {
 		})
 
 		vim.cmd("colorscheme tokyonight")
+
+		-- Lualine
+		require("lualine").setup({
+			options = {
+				-- ... your lualine config
+				theme = "tokyonight",
+				-- ... your lualine config
+			},
+		})
 	end,
 }
