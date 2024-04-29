@@ -6,7 +6,7 @@ local cmd = vim.cmd
 keymap.set("n", "<leader>e", cmd.Ex)
 
 -- Move lines
-    keymap.set("n", "<A-j>", ":m .+1<CR>==")
+keymap.set("n", "<A-j>", ":m .+1<CR>==")
 keymap.set("n", "<A-k>", ":m .-2<CR>==")
 keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
 keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")

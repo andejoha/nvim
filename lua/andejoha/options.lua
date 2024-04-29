@@ -15,7 +15,7 @@ opt.relativenumber = true
 opt.ignorecase = true
 opt.smartcase = true
 
--- GUI 
+-- GUI
 opt.termguicolors = true
 opt.cursorline = true
 
