@@ -19,6 +19,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"tsserver",
+				"omnisharp",
 			},
 		})
 
@@ -29,6 +30,7 @@ return {
 				"autopep8",
 				"eslint_d",
 				"pylint",
+				"sonarlint-language-server",
 			},
 		})
 	end,
