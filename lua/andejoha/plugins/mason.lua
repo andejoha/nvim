@@ -31,6 +31,7 @@ return {
 				"eslint_d",
 				"pylint",
 				"sonarlint-language-server",
+				"csharpier",
 			},
 		})
 	end,

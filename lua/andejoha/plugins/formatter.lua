@@ -1,28 +1,48 @@
 return {
-	"mhartington/formatter.nvim",
-	evnet = { "BufReadPre", "BufWritePost" },
+	"stevearc/conform.nvim",
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		require("formatter").setup({
-			filetype = {
-				lua = { require("formatter.filetypes.lua").stylua },
-				javascript = { require("formatter.filetypes.javascript").prettier },
-				typescript = { require("formatter.filetypes.typescript").prettier },
-				json = { require("formatter.filetypes.json").prettier },
-				html = { require("formatter.filetypes.html").prettier },
-				css = { require("formatter.filetypes.css").prettier },
-				yaml = { require("formatter.filetypes.yaml").prettier },
-				markdown = { require("formatter.filetypes.markdown").prettier },
-				python = { require("formatter.filetypes.python").autopep8 },
+		local conform = require("conform")
+		local slow_format_filetypes = {}
+
+		conform.setup({
+			formatters_by_ft = {
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				css = { "prettier" },
+				html = { "prettier" },
+				json = { "prettier" },
+				yaml = { "prettier" },
+				markdown = { "prettier" },
+				lua = { "stylua" },
+				python = { "autopep8" },
+				cs = { "csharpier" },
 			},
+			format_on_save = function(bufnr)
+				if slow_format_filetypes[vim.bo[bufnr].filetype] then
+					return
+				end
+				local function on_format(err)
+					if err and err:match("timeout$") then
+						slow_format_filetypes[vim.bo[bufnr].filetype] = true
+					end
+				end
+
+				return { timeout_ms = 200, lsp_fallback = true }, on_format
+			end,
+			format_after_save = function(bufnr)
+				if not slow_format_filetypes[vim.bo[bufnr].filetype] then
+					return
+				end
+				return { lsp_fallback = true }
+			end,
 		})
 
-		-- Format on save
-		local augroup = vim.api.nvim_create_augroup
-		local autocmd = vim.api.nvim_create_autocmd
-		augroup("__formatter__", { clear = true })
-		autocmd("BufWritePost", {
-			group = "__formatter__",
-			command = ":FormatWrite",
-		})
+		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+			conform.format({
+				lsp_fallback = true,
+				async = true,
+			})
+		end, { desc = "Format file or range (in visual mode)" })
 	end,
 }
