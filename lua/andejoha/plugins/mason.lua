@@ -28,7 +28,7 @@ return {
 				"stylua",
 				"prettier",
 				"autopep8",
-				"eslint_d",
+				"eslint",
 				"pylint",
 				"sonarlint-language-server",
 				"csharpier",
