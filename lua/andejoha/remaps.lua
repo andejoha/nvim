@@ -29,3 +29,6 @@ keymap.set("n", "<leader>3", "<C-3>")
 keymap.set("n", "<leader>4", "<C-4>")
 keymap.set("n", "<leader>5", "<C-5>")
 keymap.set("n", "<leader>6", "<C-6>")
+
+-- Buffer management
+keymap.set("n", "<leader>bd", cmd.bdelete)
