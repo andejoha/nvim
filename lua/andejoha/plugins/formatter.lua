@@ -16,7 +16,6 @@ return {
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				python = { "autopep8" },
-				cs = { "csharpier" },
 			},
 			format_on_save = function(bufnr)
 				if slow_format_filetypes[vim.bo[bufnr].filetype] then
