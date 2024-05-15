@@ -8,7 +8,7 @@ return {
 	config = function()
 		require("neogit").setup()
 
-		vim.keymap.set("n", "<leader>gs", "<cmd>Neogit kind=floating<CR>", {})
+		vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<CR>", {})
 		vim.keymap.set("n", "<leader>gc", "<cmd>Neogit commit<CR>", {})
 		vim.keymap.set("n", "<leader>gp", "<cmd>Neogit pull<CR>", {})
 		vim.keymap.set("n", "<leader>gP", "<cmd>Neogit push<CR>", {})
