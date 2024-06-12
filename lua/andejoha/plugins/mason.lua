@@ -20,6 +20,7 @@ return {
 				"lua_ls",
 				"tsserver",
 				"omnisharp@v1.39.8",
+				"pyright",
 			},
 		})
 
