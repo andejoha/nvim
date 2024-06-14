@@ -32,3 +32,10 @@ keymap.set("n", "<leader>6", "<C-6>")
 
 -- Buffer management
 keymap.set("n", "<leader>bd", cmd.bdelete)
+
+-- Replace
+keymap.set("n", "<leader>rl", ":s//g<Left><Left>")
+keymap.set("n", "<leader>ra", ":%s//g<Left><Left>")
+
+-- Extend default behavior
+keymap.set("n", "<Esc>", ":noh<CR><Esc>", { silent = true })
