@@ -13,5 +13,6 @@ return {
 		vim.keymap.set("n", "<leader>gp", "<cmd>Neogit pull<CR>", {})
 		vim.keymap.set("n", "<leader>gP", "<cmd>Neogit push<CR>", {})
 		vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", {})
+		vim.keymap.set("n", "<leader>gB", "<cmd>Neogit branch<CR>", {})
 	end,
 }
