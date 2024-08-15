@@ -1,4 +1,4 @@
 local opt = vim.opt
 
 -- Colorcolumn
-opt.colorcolumn = "80"
+opt.colorcolumn = "100"
