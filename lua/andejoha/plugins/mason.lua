@@ -32,6 +32,7 @@ return {
 				"eslint",
 				"pylint",
 				"sonarlint-language-server",
+				"volar",
 			},
 		})
 	end,
