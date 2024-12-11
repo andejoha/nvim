@@ -39,3 +39,6 @@ keymap.set("n", "<leader>ra", ":%s//g<Left><Left>")
 
 -- Extend default behavior
 keymap.set("n", "<Esc>", ":noh<CR><Esc>", { silent = true })
+
+-- Make Ctrl-C behave like Esc
+keymap.set("i", "<C-c>", "<Esc>", { silent = true })
