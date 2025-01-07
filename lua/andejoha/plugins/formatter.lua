@@ -3,12 +3,12 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local conform = require("conform")
-		local slow_format_filetypes = {}
 
 		conform.setup({
 			formatters_by_ft = {
 				javascript = { "prettier" },
 				typescript = { "prettier" },
+				vue = { "prettier" },
 				css = { "prettier" },
 				html = { "prettier" },
 				json = { "prettier" },
@@ -17,30 +17,16 @@ return {
 				lua = { "stylua" },
 				python = { "autopep8" },
 			},
-			format_on_save = function(bufnr)
-				if slow_format_filetypes[vim.bo[bufnr].filetype] then
-					return
-				end
-				local function on_format(err)
-					if err and err:match("timeout$") then
-						slow_format_filetypes[vim.bo[bufnr].filetype] = true
-					end
-				end
-
-				return { timeout_ms = 200, lsp_fallback = true }, on_format
-			end,
-			format_after_save = function(bufnr)
-				if not slow_format_filetypes[vim.bo[bufnr].filetype] then
-					return
-				end
-				return { lsp_fallback = true }
-			end,
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_format = "fallback",
+			},
 		})
 
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
 			conform.format({
-				lsp_fallback = true,
 				async = true,
+				lsp_format = "fallback",
 			})
 		end, { desc = "Format file or range (in visual mode)" })
 	end,
