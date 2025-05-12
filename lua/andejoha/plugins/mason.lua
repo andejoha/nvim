@@ -21,6 +21,7 @@ return {
 				"ts_ls",
 				"omnisharp@v1.39.8",
 				"pyright",
+				"clangd",
 			},
 		})
 
@@ -33,6 +34,7 @@ return {
 				"pylint",
 				"sonarlint-language-server",
 				"volar",
+				"clang-format",
 			},
 		})
 	end,
