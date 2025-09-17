@@ -22,6 +22,7 @@ return {
 				"omnisharp@v1.39.8",
 				"pyright",
 				"clangd",
+				"terraformls",
 			},
 		})
 
@@ -35,6 +36,7 @@ return {
 				"sonarlint-language-server",
 				"volar",
 				"clang-format",
+				"terraform",
 			},
 		})
 	end,

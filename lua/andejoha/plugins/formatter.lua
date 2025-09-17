@@ -24,10 +24,11 @@ return {
 				markdown = { "remove_cr", "prettier" },
 				lua = { "remove_cr", "stylua" },
 				python = { "remove_cr", "autopep8" },
+				terraform = { "remove_cr", "terraform_fmt" },
 				["*"] = { "remove_cr" },
 			},
 			format_on_save = {
-				timeout_ms = 500,
+				timeout_ms = 1000,
 				lsp_format = "fallback",
 			},
 		})
