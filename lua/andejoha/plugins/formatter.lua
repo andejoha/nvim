@@ -25,6 +25,7 @@ return {
 				lua = { "remove_cr", "stylua" },
 				python = { "remove_cr", "autopep8" },
 				terraform = { "remove_cr", "terraform_fmt" },
+				["terraform-vars"] = { "remove_cr", "terraform_fmt" },
 				["*"] = { "remove_cr" },
 			},
 			format_on_save = {
